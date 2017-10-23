@@ -21,7 +21,18 @@ const actions = {
 }
 
 const getters = {
-  stocks: state => state.stocks
+  stocks: state => state.stocks,
+  stockByName: state => {
+    return (name) => {
+      const stock = state.stocks.find(el => el.name === name)
+
+      if (stock === undefined) {
+        throw 'Cannot find stock "' + name + '"'
+      }
+
+      return stock
+    }
+  }
 }
 
 const mutations = {

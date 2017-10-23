@@ -25,16 +25,9 @@
     },
     computed: {
       items() {
-        let portfolio = this.$store.getters.portfolio
-        let stocks = this.$store.getters.stocks
+        const portfolio = this.$store.getters.portfolio
         for (const item of portfolio) {
-          console.log(item)
-          let stock = stocks.find(el => el.name === item.name)
-
-          if (stock === undefined) {
-            throw 'Cannot find stock "' + item.name + '"'
-          }
-
+          const stock = this.$store.getters.stockByName(item.name)
           item.price = stock.price
         }
 

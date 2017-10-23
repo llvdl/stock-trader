@@ -15,8 +15,6 @@ const getters = {
 
 const mutations = {
   addToPortfolio(state, {name, quantity}) {
-    console.log('name:', name, ' qty:', quantity)
-
     let stock = state.stocks.find(el => el.name === name)
 
     if (stock === undefined) {

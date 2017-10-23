@@ -22,7 +22,7 @@ class Store
         return is_file($path) ? json_decode(file_get_contents($path), true) : null;
     }
 
-    public function save(array $data)
+    public function save(array $data): void
     {
         file_put_contents($this->getDataFilePath(), json_encode($data));
     }
